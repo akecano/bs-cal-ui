@@ -1,0 +1,89 @@
+<mat-card class="wrapper">
+  <form
+    id="calibrationSettings"
+    [formGroup]="turretForm"
+    (ngSubmit)="onSubmit(formDirective)"
+    #formDirective="ngForm"
+    class="cali"
+  >
+    <div class="container" formArrayName="turrets">
+      <div
+        *ngFor="let turret of turrets.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-card class="card">
+          <mat-card-title>
+            <span style="width: 100%">{{ i + 1 }} Turret</span>
+            <button
+              mat-mini-fab
+              (click)="addToSequence(i)"
+              type="button"
+              color="primary"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-card-title>
+
+          <mat-card-content>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Caliber</mat-label>
+                <input matInput formControlName="caliber" type="number" />
+              </mat-form-field>
+            </p>
+            <p>
+              <label [ngStyle]="{ color: '#a8aaab', margin: '8px' }">
+                Location:
+              </label>
+              <mat-button-toggle-group
+                appearance="legacy"
+                name="packing-group"
+                aria-label="Font Style"
+                formControlName="location"
+              >
+                <mat-button-toggle value="Bow">Bow</mat-button-toggle>
+                <mat-button-toggle value="Stern">Stern</mat-button-toggle>
+              </mat-button-toggle-group>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Start Rotation</mat-label>
+                <input matInput formControlName="startRotation" type="number" />
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>End Rotation</mat-label>
+                <input matInput formControlName="endRotation" type="number" />
+              </mat-form-field>
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="seq-text">
+        Sequence:
+        <span *ngIf="sequence.length == 0">Empty</span>
+        <span *ngFor="let i of sequence">{{ i + 1 }} </span>
+      </div>
+      <div class="button-container">
+        <button mat-raised-button (click)="resetSequence()" type="button">
+          Reset Sequence
+        </button>
+        <button mat-raised-button form="calibrationSettings" type="submit">
+          SUBMIT
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="!configSet"
+          type="button"
+          (click)="runCalibration()"
+        >
+          RUN
+        </button>
+      </div>
+    </div>
+  </form>
+</mat-card>

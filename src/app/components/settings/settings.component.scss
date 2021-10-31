@@ -1,0 +1,55 @@
+@use "~@angular/material" as mat;
+
+.panel {
+  width: 100px;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  padding: 16px;
+  margin: 16px;
+}
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  flex-grow: 1;
+}
+button {
+  margin: 16px;
+}
+
+.wrapper {
+  width: 1400px;
+  margin: auto;
+  border: 55px;
+  // background: radial-gradient(at 96% 0%, #001928, #0a2332, #0a344b)
+}
+.actions {
+  display: flex;
+}
+
+.seq-text {
+  flex-grow: 2;
+  width: 100%;
+  text-align: left;
+  line-height: 64px;
+  padding-left: 16px;
+}
+.header-panel {
+  height: 64px;
+  // background: radial-gradient(at 96% 0%, #001928, #0a2332, #0a344b)
+}
+
+mat-card-title {
+  button {
+    left: 48px;
+  }
+}
+
+mat-card {
+  @include mat.elevation(2, #e91e63, 0.8);
+}
