@@ -1,5 +1,3 @@
-@use "~@angular/material" as mat;
-
 .panel {
   width: 100px;
 }
@@ -50,6 +48,10 @@ mat-card-title {
   }
 }
 
-mat-card {
-  @include mat.elevation(2, #e91e63, 0.8);
+mat-card.card {
+  background-color: rgb(250, 250, 250);
+}
+
+.enabled-button {
+  background-color: #81c784;
 }

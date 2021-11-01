@@ -58,8 +58,6 @@ export class SettingsComponent implements OnInit {
   }
 
   onSubmit(formDirective: FormGroupDirective): void {
-    // console.log(this.sdsForm.value);
-
     if (this.turretForm.valid) {
       this.turretService
         .submitSettings({
@@ -78,6 +76,7 @@ export class SettingsComponent implements OnInit {
             // Set form to disabled.
             // this.resetSdsForm();
             this.configSet = true;
+            this.turretForm.disable();
           }
         );
     } else {
@@ -105,9 +104,5 @@ export class SettingsComponent implements OnInit {
       height: '400px',
       width: '600px',
     });
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
   }
 }

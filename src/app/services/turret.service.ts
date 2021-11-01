@@ -10,7 +10,6 @@ export class TurretService {
   constructor(private http: HttpClient, private config: ConfigService) {}
 
   submitSettings(calibrationSettings: any): Observable<any> {
-    console.log(calibrationSettings);
     return this.http.put(
       this.config.getBaseUrl() + '/calibration/settings',
       calibrationSettings

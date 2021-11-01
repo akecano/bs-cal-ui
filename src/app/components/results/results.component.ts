@@ -25,7 +25,6 @@ export class ResultsComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.adapt(data);
-    console.log(this.datasource);
   }
 
   ngOnInit(): void {}

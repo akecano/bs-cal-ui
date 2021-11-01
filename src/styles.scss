@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use "~@angular/material" as mat;
 @import "~@angular/material/theming";
 
 html,
@@ -8,33 +9,13 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: whitesmoke;
 }
 
-mat-card {
-  background: radial-gradient(at 90% 50%, #001928, #0a2332, #0a344b);
-  @include mat-elevation(10);
-  mat-card-header {
-    border-radius: 0.5em;
-    background: #16161c;
-    padding: 8px;
-    .mat-card-avatar {
-      width: 20px;
-      height: 20px;
-      transform: scale(2);
-      transform-origin: left top;
-      margin-right: 16px;
-      color: #0086f8;
-      position: relative;
-      top: -4px;
-    }
-
-    mat-card-title {
-      color: whitesmoke;
-    }
-
-    mat-card-subtitle {
-      margin-bottom: 0;
-      color: #a8aaab;
-    }
+app-settings {
+  mat-card.mat-card {
+    border-width: 8px;
+    border-radius: 32px;
+    background-color: white;
   }
 }
